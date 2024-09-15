@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crud-application
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: crud-application
+  template:
+    metadata:
+      labels:
+        app: crud-application
+    spec:
+      containers:
+        - name: crud-application
+          image: your-docker-repo/crud-application:latest
+          ports:
+            - containerPort: 8080
